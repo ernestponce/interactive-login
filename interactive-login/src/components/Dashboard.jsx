@@ -6,7 +6,9 @@ const Dashboard = ({ user, onLogout }) => {
       <div style={{ fontSize: '40px', marginBottom: '10px' }}>🚀</div>
       <h1>Welcome Aboard!</h1>
       <h2>{user}</h2>
-      <p>You have successfully connected to the system!.</p>
+      
+      {/* CHANGED: Message now refers to just "System" */}
+      <p>You have successfully connected to the System.</p>
       
       <div style={{ marginTop: '20px', padding: '15px', background: '#f8f9fa', borderRadius: '8px' }}>
         <strong>Status:</strong> <span style={{ color: 'green' }}>● Active</span>

@@ -7,7 +7,6 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (username === 'admin' && password === '1234') {
       onLogin(username);
     } else {
@@ -18,13 +17,13 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="card">
-      <h2>SkyLine Analytics</h2>
-      <p>Project Gatekeeper Access</p>
+      {/* CHANGED: Name is now just "System" */}
+      <h2>System</h2>
+      <p>System Access</p>
       
       <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
         
         <div className="input-group">
-          {/* Controlled Component: Username  */}
           <input
             type="text"
             placeholder="Enter Username"
@@ -35,7 +34,6 @@ const Login = ({ onLogin }) => {
         </div>
         
         <div className="input-group">
-          {/* Controlled Component: Password  */}
           <input
             type="password"
             placeholder="Enter Password"
@@ -51,7 +49,7 @@ const Login = ({ onLogin }) => {
 
       </form>
 
-      {/* Conditional Logic: Error Message  */}
+      {/* Conditional Logic: Error Message */}
       {error && <div className="error-msg">{error}</div>}
     </div>
   );

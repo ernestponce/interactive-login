@@ -7,45 +7,52 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (username === 'admin' && password === '1234') {
       onLogin(username);
     } else {
-      setError('Invalid username or password');
+      setError('⚠️ Access Denied: Invalid Credentials');
+      setPassword(''); 
     }
   };
 
   return (
-    <div style={{ maxWidth: '300px', margin: '50px auto', textAlign: 'center' }}>
-      <h2>Project Gatekeeper Login</h2>
+    <div className="card">
+      <h2>SkyLine Analytics</h2>
+      <p>Project Gatekeeper Access</p>
       
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
         
-        {/* Username Input - Controlled Component */}
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          style={{ padding: '10px' }}
-        />
+        <div className="input-group">
+          {/* Controlled Component: Username  */}
+          <input
+            type="text"
+            placeholder="Enter Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
         
-        {/* Password Input - Controlled Component */}
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ padding: '10px' }}
-        />
+        <div className="input-group">
+          {/* Controlled Component: Password  */}
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
         
-        {/* Submit Button */}
-        <button type="submit" style={{ padding: '10px', cursor: 'pointer' }}>
-          Login
+        <button type="submit" className="btn-primary">
+          Secure Login
         </button>
+
       </form>
 
-      {/* Conditional Rendering for Error Message  */}
-      {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+      {/* Conditional Logic: Error Message  */}
+      {error && <div className="error-msg">{error}</div>}
     </div>
   );
 };

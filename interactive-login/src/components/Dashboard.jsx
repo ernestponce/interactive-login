@@ -2,16 +2,18 @@ import React from 'react';
 
 const Dashboard = ({ user, onLogout }) => {
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Welcome to SkyLine Analytics!</h1>
-      <h2>Hello, {user}!</h2>
-      <p>You have successfully logged into the system.</p>
+    <div className="card">
+      <div style={{ fontSize: '40px', marginBottom: '10px' }}>🚀</div>
+      <h1>Welcome Aboard!</h1>
+      <h2>{user}</h2>
+      <p>You have successfully connected to the system!.</p>
       
-      <button 
-        onClick={onLogout}
-        style={{ padding: '10px 20px', marginTop: '20px', cursor: 'pointer' }}
-      >
-        Logout
+      <div style={{ marginTop: '20px', padding: '15px', background: '#f8f9fa', borderRadius: '8px' }}>
+        <strong>Status:</strong> <span style={{ color: 'green' }}>● Active</span>
+      </div>
+
+      <button onClick={onLogout} className="btn-primary btn-logout">
+        Disconnect / Logout
       </button>
     </div>
   );

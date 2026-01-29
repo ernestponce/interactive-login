@@ -17,14 +17,13 @@ function App() {
   };
 
   return (
-    <div>
-      {/* Conditional Rendering: Show Dashboard if logged in, else show Login  */}
+    <>
       {isLoggedIn ? (
         <Dashboard user={user} onLogout={handleLogout} />
       ) : (
         <Login onLogin={handleLogin} />
       )}
-    </div>
+    </>
   );
 }
 
